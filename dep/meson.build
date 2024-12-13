@@ -3,3 +3,4 @@
 
 subdir('dpdk')
 subdir('libnl')
+subdir('grpc')

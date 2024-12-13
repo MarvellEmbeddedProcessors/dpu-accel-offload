@@ -3,11 +3,11 @@
 
 project(
 	'Data Accelerator Offload',
-	'C',
+	'C', 'CPP',
 	meson_version: '>= 0.61.0',
 	version: run_command(find_program('cat', 'more'),
 							files('VERSION'), check: true).stdout().strip(),
-	default_options: ['warning_level=2', 'werror=true', 'buildtype=release']
+	default_options: ['warning_level=2', 'werror=true', 'buildtype=release','cpp_std=c++17']
 )
 
 # Build Configuration Data
@@ -21,6 +21,8 @@ DAO_INCLUDES = []
 DAO_EXT_DEPS_LIBDPDK = []
 # LIBNL
 DAO_EXT_DEPS_LIBNL = []
+# GRPC
+DAO_EXT_DEPS_GRPC = []
 # DAO static libraries
 DAO_STATIC_LIBS = []
 # Enabled/disabled static dao applicaitons/libraries/tests
