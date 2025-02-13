@@ -70,7 +70,7 @@ jobs:
             echo "cache_dir = ~/.ccache" > ~/.ccache/ccache.conf
             ccache -p
             pkg-config --list-all
-            meson build -Dplatform=cn10k --prefix="${PWD}/install" -Denable_kmods=false --prefer-static
+            meson build -Dplatform=cn10k --prefix="${PWD}/install" -Denable_kmods=false
             ninja install -C build
             mkdir -p "${PWD}/install/DEBIAN"
             cd "${PWD}/install"
