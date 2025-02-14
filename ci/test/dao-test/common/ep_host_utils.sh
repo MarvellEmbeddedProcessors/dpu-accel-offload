@@ -147,11 +147,11 @@ function ep_host_launch_guest()
 	local in=guest.in.$pfx
 	local out=guest.out.$pfx
 
-	$EP_SCP_CMD ci@10.28.34.13:/home/ci/dao_host/qemu-system-x86_64 $EP_DIR/
-	$EP_SCP_CMD ci@10.28.34.13:/home/ci/dao_host/noble-server-cloudimg-amd64.img $EP_DIR/
-	$EP_SCP_CMD ci@10.28.34.13:/home/ci/dao_host/bios-256k.bin /usr/share/qemu
-	$EP_SCP_CMD ci@10.28.34.13:/home/ci/dao_host/vgabios-stdvga.bin /usr/share/qemu
-	$EP_SCP_CMD ci@10.28.34.13:/home/ci/dao_host/efi-virtio.rom /usr/share/qemu
+	$EP_SCP_CMD ci@10.28.36.188:/home/ci/dao/host/qemu-system-x86_64 $EP_DIR/
+	$EP_SCP_CMD ci@10.28.36.188:/home/ci/dao/host/noble-server-cloudimg-amd64.img $EP_DIR/
+	$EP_SCP_CMD ci@10.28.36.188:/home/ci/dao/host/bios-256k.bin /usr/share/qemu
+	$EP_SCP_CMD ci@10.28.36.188:/home/ci/dao/host/vgabios-stdvga.bin /usr/share/qemu
+	$EP_SCP_CMD ci@10.28.36.188:/home/ci/dao/host/efi-virtio.rom /usr/share/qemu
 
 	# Folder to be shared with the guest
 	rm -rf $EP_GUEST_SHARE_DIR
