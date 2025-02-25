@@ -32,7 +32,7 @@ foreach test: tests
 
     subdir(test)
 
-    dep_objs = DAO_DPDK_LIB_DEPS
+    dep_objs = DAO_EXT_DEPS_LIBDPDK
     # Defining the static library dependencies
     foreach d:deps
         var_name = 'static' + '_dao_' + d

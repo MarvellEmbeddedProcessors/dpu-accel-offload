@@ -2,10 +2,10 @@
 # Copyright (c) 2023 Marvell.
 
 apps = [
-	'ovs-offload',
-	'secgw-graph',
-	'smart-nic',
-	'virtio-l2fwd',
+        'ovs-offload',
+        'secgw-graph',
+        'smart-nic',
+        'virtio-l2fwd',
 ]
 
 enabled = []
@@ -25,18 +25,25 @@ foreach app: apps
     includes = []
     deps = []
     cflags = default_cflags
+    cxxflags = default_cflags
     ldflags = []
 
     skip_app = false
+    app_deps = []
+    app_cflags = []
+    app_cxxflags = []
+
     subdir(app)
 
     # Skip app compilation if marked
     if skip_app
-	disabled += [name]
+        disabled += [name]
         continue
     endif
 
-    dep_objs = DAO_DPDK_LIB_DEPS
+    dep_objs = app_deps
+    cflags += app_cflags
+    cxxflags += app_cxxflags
     # Defining the static library dependencies
     foreach d:deps
         var_name = 'static' + '_dao_' + d
@@ -50,18 +57,19 @@ foreach app: apps
 
     if not build
         message('Skipping app "' + name + '"')
-	disabled += [name]
+        disabled += [name]
         continue
     endif
 
     enabled += [name]
     executable('dao-' + name, sources,
             include_directories: DAO_INCLUDES + includes,
-	    link_whole: DAO_STATIC_LIBS,
+            link_whole: DAO_STATIC_LIBS,
             link_args: ldflags,
             c_args: cflags,
+            cpp_args: cxxflags,
             dependencies: dep_objs,
-	    install: true)
+            install: true)
 endforeach
 
 # Update global configuration

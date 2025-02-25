@@ -16,8 +16,11 @@ DAO_BUILD_CONF = configuration_data()
 DAO_SOURCES = []
 # DAO include directories
 DAO_INCLUDES = []
-# Mandatory dpdk library dependency
-DAO_DPDK_LIB_DEPS = []
+# External library dependencies
+# DPDK
+DAO_EXT_DEPS_LIBDPDK = []
+# LIBNL
+DAO_EXT_DEPS_LIBNL = []
 # DAO static libraries
 DAO_STATIC_LIBS = []
 # Enabled/disabled static dao applicaitons/libraries/tests

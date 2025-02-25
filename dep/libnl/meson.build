@@ -22,4 +22,4 @@ endif
 
 DAO_BUILD_CONF.set('DAO_LIBNL_DEP', '1')
 libnl_deps = [libnl_dep, libnlroute_dep, libnlxfrm_dep]
-DAO_DPDK_LIB_DEPS += libnl_deps
+DAO_EXT_DEPS_LIBNL += libnl_deps

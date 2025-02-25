@@ -9,7 +9,7 @@ if libdpdk_dep.found()
 	dpdk_version = libdpdk_dep.version()
 
 	DAO_BUILD_CONF.set('DAO_LIBDPDK_DEP', '1')
-	DAO_DPDK_LIB_DEPS += libdpdk_dep
+	DAO_EXT_DEPS_LIBDPDK += libdpdk_dep
 else
 	message('DPDK pkgconfig not exported')
 	subdir_done()

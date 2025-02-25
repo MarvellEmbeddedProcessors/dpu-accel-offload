@@ -25,3 +25,4 @@ headers = files(
 	'dao_netlink_xfrm.h',
 	'dao_netlink_route.h'
 )
+lib_deps += DAO_EXT_DEPS_LIBNL
